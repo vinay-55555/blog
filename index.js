@@ -53,7 +53,9 @@ app.use((req,res,next)=>{
     next()
 })
 
-
+app.get("/",(req,res)=>{
+    res.send("ok")
+})
 
 app.get("/blog",async (req,res)=>{ 
     let alldata = await Blog.find();
