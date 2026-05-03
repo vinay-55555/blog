@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <%= msg %>
+    <h1>Full Detail About Blogs</h1>
+    <h1>Name Of Auther:<%= alldata.name %></h1>
+    <h1>Name Of Auther:<%= alldata.owner.username %></h1>
+     <p>Title Of Blog :<%= alldata.title %></p>
+     <p>age:<i>-<%= alldata.age %></i></p>
+     <p><b>Blog:</b><%= alldata.blog%></p>
+     <p>publishedYear:<i>-<%= alldata.publishedYear %></i></p>
+
+
+     
+     <a href="/blog/<%= alldata._id%>/edit"><button>Edit The Blog</button></a> <br><br>
+
+     <form action="/blog/<%= alldata._id%>?_method=DELETE" method="post">
+        <button>Delete The Blog</button>
+     </form>
+
+  <hr>
+
+  <h1>Add Review </h1>
+  <form action="/blog/<%= alldata._id%>/reviews" method="post">
+    <label for="">Comment :</label>
+    <input type="text" name="comment"> <br><br>
+    <button>Submit</button>
+  </form>
+
+  <hr>
+  
+  <h1>Review By User</h1>
+  <% for(value of alldata.review){ %>
+   <p> comments : <%= value.comment %></p>
+   <form action="/blog/<%= alldata._id%>/reviews/<%= value._id%>?_method=DELETE" method="post">
+    <button>Delete The Review</button>
+   </form>
+
+  <%} %>
+
+ 
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit  Your Blog</h1>
+    
+    <form action="/blog/<%= alldata._id %>?_method=PUT" method="post">
+
+    <label for="">Name:</label>
+    <input type="text" name="blogs[name]" value="<%= alldata.name %>"><br><br>
+     <label for="">Title:</label>
+    <input type="text" name="blogs[title]" value="<%= alldata.title %>"><br><br>
+     <label for="">publishedYear:</label>
+    <input type="text" name="blogs[publishedYear]" value="<%= alldata.publishedYear %>"><br><br>
+         <label for="">Age Of Auther:</label>
+    <input type="number" name="blogs[age]" value="<%= alldata.age %>" ><br><br>
+   <button>Submit</button>
+    </form>
+
+</body>
+</html>
